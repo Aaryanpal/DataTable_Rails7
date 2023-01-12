@@ -31,11 +31,11 @@ namespace :flipkart do
                 discount = p.search('div._25b18c').children[2].nil? ? 0 : p.search('div._25b18c').children[2].children.text.tr('% off','').to_i 
                 rating =   p.search('div._3LWZlK').children.text
                         # skip persisting job if it already exists in db
-                        if Customer.where(name:name,categories:categories, current_price:current_price, actual_price:actual_price, discount:discount, rating:rating ).count <= 0
-                            Customer.create(name:name,categories:categories,current_price:current_price, actual_price:actual_price, discount:discount, rating:rating )
-                        puts 'Added: ' + (name ? name : '')
+                        if Product.where(name:name,categories:categories, current_price:current_price, actual_price:actual_price, discount:discount, rating:rating ).count <= 0
+                            Product.create(name:name,categories:categories,current_price:current_price, actual_price:actual_price, discount:discount, rating:rating )
+                        puts 'Added: ' + (categories ? categories : '')
                         else
-                        puts 'Skipped: ' + (name ? name : '')
+                        puts 'Skipped: ' + (categories ? categories : '')
                         end   
                 end 
             end

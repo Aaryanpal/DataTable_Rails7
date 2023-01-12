@@ -8,19 +8,19 @@ Products</h1>
   Search <%= form.search_field :query,placeholder: "Search your Product",class: "border",value: params[:query], oninput: "this.form.requestSubmit()"%>
   <%end%>
 <%= turbo_frame_tag "products" do%>
-    <div class = "tables">
-      <div class = "table-header-group">
-        <%=sort_link_to "Name",:name, class: "table-cell pr-4"%>
-        <%=sort_link_to "Categories",:categories, class: "table-cell pr-4"%>
-        <%=sort_link_to "Current_Price",:current_price, class: "table-cell pr-4"%>
-        <%=sort_link_to "Actual_Price",:actual_price, class: "table-cell pr-4"%>
-        <%=sort_link_to "Discount",:discount, class: "table-cell pr-4"%>
-        <%=sort_link_to "Rating",:rating, class: "table-cell pr-4"%>
-      </div>
-      <%= render @products %>
-      </div>
-    <br>
-    <br>
-    <%== render partial: 'bootstrap_nav', locals: {pagy: @pagy} %>
-    <%end%>
+        <div class = "tables border-solid">
+              <div class = "table-header-group">
+                <%=sort_link_to "Name",:name, class: "table-cell pr-4"%>
+                <%=sort_link_to "Categories",:categories, class: "table-cell pr-4"%>
+                <%=sort_link_to "Current_Price",:current_price, class: "table-cell pr-4"%>
+                <%=sort_link_to "Actual_Price",:actual_price, class: "table-cell pr-4"%>
+                <%=sort_link_to "Discount",:discount, class: "table-cell pr-4"%>
+                <%=sort_link_to "Rating",:rating, class: "table-cell pr-4"%>
+              </div>
+          <%= render @products %>
+          </div>
+<br>
+<br>
+        <%== render partial: 'bootstrap_nav', locals: {pagy: @pagy} %>
+<%end%>
 </div>
