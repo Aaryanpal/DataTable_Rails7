@@ -1,0 +1,26 @@
+<div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
+
+<h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
+Products</h1>
+
+<%=form_with url: "",method: :get, data: {turbo_frame: "products", turbo_action: "advance"} do |form|%>
+  Show <%= form.select :count, options_for_select([10,20,50,100], selected: params[:count]), {} , {onchange: "this.form.requestSubmit()"}%>
+  Search <%= form.search_field :query,placeholder: "Search your Product",class: "border",value: params[:query], oninput: "this.form.requestSubmit()"%>
+  <%end%>
+<%= turbo_frame_tag "products" do%>
+    <div class = "tables">
+      <div class = "table-header-group">
+        <%=sort_link_to "Name",:name, class: "table-cell pr-4"%>
+        <%=sort_link_to "Categories",:categories, class: "table-cell pr-4"%>
+        <%=sort_link_to "Current_Price",:current_price, class: "table-cell pr-4"%>
+        <%=sort_link_to "Actual_Price",:actual_price, class: "table-cell pr-4"%>
+        <%=sort_link_to "Discount",:discount, class: "table-cell pr-4"%>
+        <%=sort_link_to "Rating",:rating, class: "table-cell pr-4"%>
+      </div>
+      <%= render @products %>
+      </div>
+    <br>
+    <br>
+    <%== render partial: 'bootstrap_nav', locals: {pagy: @pagy} %>
+    <%end%>
+</div>

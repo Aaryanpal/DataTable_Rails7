@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  categories: MyString
+  current_price: 1
+  actual_price: 1
+  discount: 1
+  rating: 1.5
+
+two:
+  name: MyString
+  categories: MyString
+  current_price: 1
+  actual_price: 1
+  discount: 1
+  rating: 1.5
